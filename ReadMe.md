@@ -1,3 +1,5 @@
+**PAGE TO MAKE ALL CUSTOM API CALLS FROM BROWSER STILL TO BE ADDED**
+
 Running:
 1) Download (clone) and run endpoint.py script on your machine. Don't forget to install flask first!!!
 2) GET requests' results can be viewed from browser, yet for POST, PUT, PATCH and DELETE I
