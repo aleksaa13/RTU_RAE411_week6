@@ -30,16 +30,17 @@ def return_scores():
 
 @app.route('/scores/<int:n>', methods=['GET'])
 def return_nth_score(n):
+    nth_key = get_nth_key(data["scores"], n)
     try:
-        return list(data["scores"])[n]
+        return jsonify({list(data["scores"])[n]: (data["scores"])[nth_key]})
     except IndexError:
         return "No so much scores yet!"
 
 
 @app.route('/scores', methods=['POST'])
 def add_score():
-    score_value = request.json['value']
-    score_key = request.json['key']
+    score_value = request.json['score_value']
+    score_key = request.json['score_key']
     new_score = {
         score_key: score_value,
     }
@@ -52,10 +53,11 @@ def modify_nth_score(n):
     new_key = request.json["new_key"]
     new_value = request.json['new_value']
     nth_key = get_nth_key(data["scores"], n)
+    to_return = {new_key: new_value}
     if nth_key != "Not so much scores yet!":
         (data["scores"])[new_key] = (data["scores"]).pop(nth_key)
         (data["scores"])[new_key] = new_value
-        return {list(data["scores"])[n]: new_value}
+        return jsonify(to_return)
     else:
         return nth_key
 
@@ -66,7 +68,7 @@ def modify_nth_score_value(n):
     nth_key = get_nth_key(data["scores"], n)
     if nth_key != "Not so much scores yet!":
         (data["scores"])[nth_key] = new_value
-        return {list(data["scores"])[n]: new_value}
+        return jsonify({list(data["scores"])[n]: new_value})
     else:
         return nth_key
 
@@ -76,7 +78,7 @@ def delete_score(n):
     nth_key = get_nth_key(data["scores"], n)
     to_return = {nth_key: (data["scores"])[nth_key]}
     (data["scores"]).pop(nth_key)
-    return to_return
+    return jsonify(to_return)
 
 
 def get_nth_key(scores, n):
@@ -88,4 +90,4 @@ def get_nth_key(scores, n):
 
 app.run()
 
-# end
+
