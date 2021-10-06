@@ -34,7 +34,7 @@ def return_nth_score(n):
     try:
         return jsonify({list(data["scores"])[n]: (data["scores"])[nth_key]})
     except IndexError:
-        return "No so much scores yet!"
+        return "Not so much scores yet!"
 
 
 @app.route('/scores', methods=['POST'])
@@ -76,9 +76,12 @@ def modify_nth_score_value(n):
 @app.route('/scores/<int:n>', methods=['DELETE'])
 def delete_score(n):
     nth_key = get_nth_key(data["scores"], n)
-    to_return = {nth_key: (data["scores"])[nth_key]}
-    (data["scores"]).pop(nth_key)
-    return jsonify(to_return)
+    if nth_key != "Not so much scores yet!":
+        to_return = {nth_key: (data["scores"])[nth_key]}
+        (data["scores"]).pop(nth_key)
+        return jsonify(to_return)
+    else:
+        return nth_key
 
 
 def get_nth_key(scores, n):
