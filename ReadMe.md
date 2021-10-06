@@ -101,6 +101,8 @@ And it's gone.
 </p>
 
 
+**If n is bigger then number of scores in any case it is used, message "Not so much scores yet will be displayed/returned".**
+
 
 
 
