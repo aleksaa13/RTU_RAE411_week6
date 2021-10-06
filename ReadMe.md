@@ -6,7 +6,7 @@ Running:
 recommend using Postman. Link to download https://www.postman.com/downloads/ .
 Postman provides you with a simple GUI for testing APIs.
 
-If you are too lazy for all this, here is the webpage from which you can generate requests and see the results directly.
+If you are too lazy for all this, here is the webpage from which you can generate requests and see the results directly (....to be added).
 Remember, in order for this to work, you still need to run endpoint.py script on your machine since calls are directed to localhost!
 
 **Notice**: Here, we will work with a dictionary and access it's elements by position. As far as I know, this is not a real life practice and arrays should be indexed with numbers and objects should be indexed with key values. However, this task is done this way so some indexing errors because of auto-sorting keys will happen. Once they happen, they will be explained in details.
