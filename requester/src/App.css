@@ -1,0 +1,40 @@
+@import "~antd/dist/antd.css";
+
+.App {
+  text-align: center;
+  padding: 20px 150px;
+}
+
+.chose {
+  display: flex;
+  flex-direction: row;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.invisible {
+  display: none;
+}
+
+.requestBody {
+  margin-top: 20px;
+}
+
+span {
+  margin-right: 15px;
+}
+
+button {
+  margin-top: 20px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.input {
+  width: 300px;
+}
