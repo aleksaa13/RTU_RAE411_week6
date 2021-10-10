@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/RTU_RAE411_week6/static/css/main.93b6b014.chunk.css",
+    "main.js": "/RTU_RAE411_week6/static/js/main.72a1f29d.chunk.js",
+    "main.js.map": "/RTU_RAE411_week6/static/js/main.72a1f29d.chunk.js.map",
+    "runtime-main.js": "/RTU_RAE411_week6/static/js/runtime-main.13f99a3c.js",
+    "runtime-main.js.map": "/RTU_RAE411_week6/static/js/runtime-main.13f99a3c.js.map",
+    "static/css/2.a95be28f.chunk.css": "/RTU_RAE411_week6/static/css/2.a95be28f.chunk.css",
+    "static/js/2.4395407b.chunk.js": "/RTU_RAE411_week6/static/js/2.4395407b.chunk.js",
+    "static/js/2.4395407b.chunk.js.map": "/RTU_RAE411_week6/static/js/2.4395407b.chunk.js.map",
+    "static/js/3.0b5e4779.chunk.js": "/RTU_RAE411_week6/static/js/3.0b5e4779.chunk.js",
+    "static/js/3.0b5e4779.chunk.js.map": "/RTU_RAE411_week6/static/js/3.0b5e4779.chunk.js.map",
+    "index.html": "/RTU_RAE411_week6/index.html",
+    "static/css/2.a95be28f.chunk.css.map": "/RTU_RAE411_week6/static/css/2.a95be28f.chunk.css.map",
+    "static/css/main.93b6b014.chunk.css.map": "/RTU_RAE411_week6/static/css/main.93b6b014.chunk.css.map",
+    "static/js/2.4395407b.chunk.js.LICENSE.txt": "/RTU_RAE411_week6/static/js/2.4395407b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.13f99a3c.js",
+    "static/css/2.a95be28f.chunk.css",
+    "static/js/2.4395407b.chunk.js",
+    "static/css/main.93b6b014.chunk.css",
+    "static/js/main.72a1f29d.chunk.js"
+  ]
+}
