@@ -46,9 +46,9 @@ class App extends React.Component {
       n: 0,
       displayInputNumber: false,
       displayButton: false,
-      result: {},
-      key: "",
-      value: "",
+      result: "Check if endpoint is running. Check CORS",
+      key: "a",
+      value: 1,
     };
     this.makeRequest = this.makeRequest.bind(this);
   }
@@ -86,6 +86,8 @@ class App extends React.Component {
             <span>
               <label htmlFor="input_score_key">Key:</label>
               <Input
+                placeholder="a"
+                defaultValue="a"
                 onChange={(value) =>
                   this.setState({ key: value.nativeEvent.data })
                 }
@@ -130,6 +132,8 @@ class App extends React.Component {
             <span>
               <label htmlFor="input_new_score_key">Key:</label>
               <Input
+                placeholder="a"
+                defaultValue="a"
                 onChange={(value) =>
                   this.setState({ key: value.nativeEvent.data })
                 }
@@ -164,19 +168,29 @@ class App extends React.Component {
       } else {
         url = `http://localhost:5000/scores/${this.state.n}`;
       }
-      axios.get(url).then((res) => {
-        this.setState({ result: res.data });
-        console.log(res.data);
-      });
+      axios
+        .get(url)
+        .then((res) => {
+          this.setState({ result: res.data });
+          console.log(res.data);
+        })
+        .catch((error) => {
+          this.setState({ result: "BAD REQUEST! Check CORS and endpoint" });
+        });
     } else if (this.state.requestType[0] === "POST") {
       let body = {
         score_key: this.state.key,
         score_value: this.state.value,
       };
-      axios.post(`http://localhost:5000/scores`, body).then((res) => {
-        console.log(res.data);
-        this.setState({ result: res.data });
-      });
+      axios
+        .post(`http://localhost:5000/scores`, body)
+        .then((res) => {
+          console.log(res.data);
+          this.setState({ result: res.data });
+        })
+        .catch((error) => {
+          this.setState({ result: "BAD REQUEST! Check CORS and endpoint" });
+        });
     } else if (this.state.requestType[0] === "PUT") {
       let body = {
         new_key: this.state.key,
@@ -187,6 +201,9 @@ class App extends React.Component {
         .then((res) => {
           console.log(res.data);
           this.setState({ result: res.data });
+        })
+        .catch((error) => {
+          this.setState({ result: "BAD REQUEST! Check CORS and endpoint" });
         });
     } else if (this.state.requestType[0] === "PATCH") {
       let body = {
@@ -197,6 +214,9 @@ class App extends React.Component {
         .then((res) => {
           console.log(res.data);
           this.setState({ result: res.data });
+        })
+        .catch((error) => {
+          this.setState({ result: "BAD REQUEST! Check CORS and endpoint" });
         });
     } else {
       axios
@@ -204,6 +224,9 @@ class App extends React.Component {
         .then((res) => {
           console.log(res.data);
           this.setState({ result: res.data });
+        })
+        .catch((error) => {
+          this.setState({ result: "BAD REQUEST! Check CORS and endpoint" });
         });
     }
   }
@@ -244,9 +267,11 @@ class App extends React.Component {
           </button>
         </div>
         <div className={this.state.displayButton ? "response" : "invisible"}>
-          {Object.keys(this.state.result).map((key) => {
-            return <div>{`"${key}" : ${this.state.result[key]}`}</div>;
-          })}
+          {typeof this.state.result === "string"
+            ? this.state.result
+            : Object.keys(this.state.result).map((key) => {
+                return <div>{`"${key}" : ${this.state.result[key]}`}</div>;
+              })}
         </div>
       </div>
     );
