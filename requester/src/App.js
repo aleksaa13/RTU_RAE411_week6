@@ -11,10 +11,6 @@ const options = [
     label: "GET",
     children: [
       {
-        value: "All data",
-        label: "All data",
-      },
-      {
         value: "scores",
         label: "Scores",
       },
@@ -163,9 +159,7 @@ class App extends React.Component {
   makeRequest() {
     let url;
     if (this.state.requestType[0] === "GET") {
-      if (this.state.requestType[1] === "All data") {
-        url = `http://localhost:5000`;
-      } else if (this.state.requestType[1] === "scores") {
+      if (this.state.requestType[1] === "scores") {
         url = `http://localhost:5000/scores`;
       } else {
         url = `http://localhost:5000/scores/${this.state.n}`;
@@ -212,13 +206,6 @@ class App extends React.Component {
           this.setState({ result: res.data });
         });
     }
-
-    // const body = { new_value: "99" };
-    // axios.patch(`http://localhost:5000/scores/0`, body).then((res) => {
-    //   const result = res.data;
-    //   console.log(result);
-    //   this.setState({ result });
-    // });
   }
 
   render() {
@@ -247,8 +234,6 @@ class App extends React.Component {
             </div>
             <div className="requestBody">{this.getFormat()}</div>
           </div>
-
-          <div className="response"></div>
         </div>
         <div className="buttonHolder">
           <button
@@ -258,7 +243,11 @@ class App extends React.Component {
             MAKE REQUEST
           </button>
         </div>
-        <div className="response"></div>
+        <div className={this.state.displayButton ? "response" : "invisible"}>
+          {Object.keys(this.state.result).map((key) => {
+            return <div>{`"${key}" : ${this.state.result[key]}`}</div>;
+          })}
+        </div>
       </div>
     );
   }
