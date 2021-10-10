@@ -7,7 +7,7 @@ Running:
    recommend using Postman. Link to download https://www.postman.com/downloads/ .
    Postman provides you with a simple GUI for testing APIs.
 
-If you are too lazy for all this, here is the webpage from which you can generate requests and see the results directly (....to be added).
+If you are too lazy for all this, here is the webpage from which you can generate requests and see the results directly https://aleksaa13.github.io/RTU_RAE411_week6/ .
 Remember, in order for this to work, you still need to run endpoint.py script on your machine since calls are directed to localhost! Also, don't
 forget about CORS policy. Look at this a an Ali-express Postman version and make sure to read the provided documentation to get the best out of it.
 
